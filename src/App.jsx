@@ -19,7 +19,7 @@ function App() {
     <noteContext.Provider value={data}>
       <div>
         <button
-          onClick={() => setNotesCount([...notesCount, "newNote"])}
+          onClick={() => setNotesCount([...notesCount, { content: "" }])}
           className="border-black border-2 m-2 "
         >
           Add Note

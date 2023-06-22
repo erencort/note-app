@@ -8,17 +8,19 @@ function Note({ itemIndex }) {
   console.log(itemIndex);
 
   const handleChange = (e) => {
-    let newNotes = setNotesCount;
-    let changeItem = setNotesCount[itemIndex];
-    changeItem = "dsfff";
+    let newNotes = notesCount;
+    let changeItem = notesCount[itemIndex];
+    changeItem = { content: e.target.value };
     newNotes[itemIndex] = changeItem;
     setNotesCount(newNotes);
+    console.log(e.target.value);
   };
 
   return (
     <div>
       <textarea
         onChange={(e) => handleChange(e)}
+        value={notesCount.content}
         className="m-2 border-2 border-black"
       ></textarea>
     </div>
