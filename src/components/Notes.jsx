@@ -8,18 +8,22 @@ function Notes() {
 
   return (
     <div>
-      {notesCount.map((item, index) => {
-        return (
-          <Note
-            key={item.id}
-            item={item}
-            id={item.id}
-            itemIndex={index}
-            setNotesCount={setNotesCount}
-            notesCount={notesCount}
-          />
-        );
-      })}
+      {notesCount.length !== 0 ? (
+        notesCount.map((item, index) => {
+          return (
+            <Note
+              key={item.id}
+              item={item}
+              id={item.id}
+              itemIndex={index}
+              setNotesCount={setNotesCount}
+              notesCount={notesCount}
+            />
+          );
+        })
+      ) : (
+        <div className="text-center text-4xl mt-8">You have no notes!</div>
+      )}
     </div>
   );
 }

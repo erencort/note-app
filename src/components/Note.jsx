@@ -34,15 +34,25 @@ function Note({ itemIndex, item, id }) {
   };
 
   return (
-    <div>
+    <div className="text-center mt-7">
       <textarea
         onChange={(e) => handleChange(e)}
         defaultValue={item.content}
-        className="m-2 border-2 border-black"
+        rows="10"
+        className="mx-auto border-2 p-2 w-1/4 border-black bg-gray-600 rounded-xl"
       ></textarea>
-      <button onClick={deleteNote}>delete</button>
+      <div>
+        <button
+          className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-7 mt-1 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+          onClick={deleteNote}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }
 
+//className="bg-red-400 p-2  rounded-lg mt-1 mb-7"
+//class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
 export default Note;
