@@ -1,9 +1,33 @@
 import { useState } from "react";
+import Notes from "./components/Notes";
+import { useEffect } from "react";
+import { noteContext } from "./context";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [notesCount, setNotesCount] = useState([]);
 
-  return <h1 className="text-2xl"></h1>;
+  const data = {
+    notesCount,
+    setNotesCount,
+  };
+
+  useEffect(() => {
+    console.log(notesCount);
+  }, [notesCount]);
+
+  return (
+    <noteContext.Provider value={data}>
+      <div>
+        <button
+          onClick={() => setNotesCount([...notesCount, "newNote"])}
+          className="border-black border-2 m-2 "
+        >
+          Add Note
+        </button>
+        <Notes />
+      </div>
+    </noteContext.Provider>
+  );
 }
 
 export default App;
