@@ -4,7 +4,11 @@ import { useEffect } from "react";
 import { noteContext } from "./context";
 
 function App() {
-  const [notesCount, setNotesCount] = useState([]);
+  const [notesCount, setNotesCount] = useState(
+    localStorage.getItem("notes")
+      ? JSON.parse(localStorage.getItem("notes"))
+      : []
+  );
 
   const data = {
     notesCount,

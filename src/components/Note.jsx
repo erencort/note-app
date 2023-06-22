@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { useEffect } from "react";
 import { noteContext } from "../context";
 
-function Note({ itemIndex }) {
+function Note({ itemIndex, item }) {
   const { notesCount, setNotesCount } = useContext(noteContext);
   console.log(itemIndex);
 
@@ -14,13 +14,15 @@ function Note({ itemIndex }) {
     newNotes[itemIndex] = changeItem;
     setNotesCount(newNotes);
     console.log(e.target.value);
+
+    localStorage.setItem("notes", JSON.stringify(notesCount));
   };
 
   return (
     <div>
       <textarea
         onChange={(e) => handleChange(e)}
-        value={notesCount.content}
+        defaultValue={item.content}
         className="m-2 border-2 border-black"
       ></textarea>
     </div>

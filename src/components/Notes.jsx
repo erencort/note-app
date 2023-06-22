@@ -12,6 +12,7 @@ function Notes() {
         return (
           <Note
             key={index}
+            item={item}
             itemIndex={index}
             setNotesCount={setNotesCount}
             notesCount={notesCount}
