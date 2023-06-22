@@ -11,8 +11,9 @@ function Notes() {
       {notesCount.map((item, index) => {
         return (
           <Note
-            key={index}
+            key={item.id}
             item={item}
+            id={item.id}
             itemIndex={index}
             setNotesCount={setNotesCount}
             notesCount={notesCount}

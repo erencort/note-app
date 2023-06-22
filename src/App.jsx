@@ -2,6 +2,7 @@ import { useState } from "react";
 import Notes from "./components/Notes";
 import { useEffect } from "react";
 import { noteContext } from "./context";
+import { nanoid } from "nanoid";
 
 function App() {
   const [notesCount, setNotesCount] = useState(
@@ -15,15 +16,17 @@ function App() {
     setNotesCount,
   };
 
-  useEffect(() => {
-    console.log(notesCount);
-  }, [notesCount]);
+  const addNote = () => {
+    let newNotes = [...notesCount, { content: "", id: nanoid() }];
+    setNotesCount(newNotes);
+    localStorage.setItem("notes", JSON.stringify(newNotes));
+  };
 
   return (
     <noteContext.Provider value={data}>
       <div>
         <button
-          onClick={() => setNotesCount([...notesCount, { content: "" }])}
+          onClick={() => addNote()}
           className="border-black border-2 m-2 "
         >
           Add Note
