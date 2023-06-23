@@ -14,6 +14,7 @@ function Notes() {
             <Note
               key={item.id}
               item={item}
+              isOpen={item.isOpen}
               id={item.id}
               itemIndex={index}
               setNotesCount={setNotesCount}

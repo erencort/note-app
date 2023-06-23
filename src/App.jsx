@@ -17,7 +17,7 @@ function App() {
   };
 
   const addNote = () => {
-    let newNotes = [...notesCount, { content: "", id: nanoid() }];
+    let newNotes = [...notesCount, { content: "", id: nanoid(), isOpen: true }];
     setNotesCount(newNotes);
     localStorage.setItem("notes", JSON.stringify(newNotes));
   };
